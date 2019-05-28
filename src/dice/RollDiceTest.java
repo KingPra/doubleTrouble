@@ -1,5 +1,6 @@
 package dice;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -16,6 +17,14 @@ class RollDiceTest {
 		assertTrue("this should return true if it is the first roll", roller.firstRoll() == true);
 		assertTrue("this is the second call, this should return false", roller.firstRoll() == false);
 		assertTrue("this is the third call, this should return false", roller.firstRoll() == false);
+	}
+
+	@Test
+	@DisplayName("this should add two dice and return sum")
+	void addTwoDiceTest() {
+		assertEquals("this should return 5", 5, roller.addDice(3, 2));
+		assertEquals("this should return 7", 7, roller.addDice(3, 4));
+		assertEquals("this should return 2", 5, roller.addDice(1, 1));
 	}
 
 	@Test
