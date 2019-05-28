@@ -1,6 +1,7 @@
 package dice;
 
 public class RollDice {
+
 	int counter = 0;
 
 	public boolean firstRoll() {
