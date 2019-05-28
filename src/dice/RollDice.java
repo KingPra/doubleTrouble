@@ -22,4 +22,9 @@ public class RollDice {
 		return "win";
 	}
 
+	public Object addDice(int i, int j) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
