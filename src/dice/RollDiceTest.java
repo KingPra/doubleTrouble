@@ -37,14 +37,11 @@ class RollDiceTest {
 	@Test
 	@DisplayName("roller dice should return a win or lose")
 	void playGameTest() {
+
 		assertEquals("this should return win if they roll a 7 on the first roll", roller.playGame(7, true), "win");
-
 		assertEquals("this should return win if they roll an 11 on the first roll", roller.playGame(11, true), "win");
-
 		assertEquals("this should return a lose if they roll a 2 on the first roll", roller.playGame(2, true), "lose");
-
 		assertEquals("this should return a lose if they roll a 3 on the first roll", roller.playGame(3, true), "lose");
-
 		assertEquals("this should return a lose if they roll a 12 on the first roll", roller.playGame(12, true),
 				"lose");
 

@@ -4,13 +4,12 @@ import java.util.Random;
 
 public class RollDice {
 	public static void main(String[] args) {
-//		System.out.println(addDice(die(), die()));
-//		playGame(addDice(die(), die()), firstRoll());
 		playGame(addDice(die(), die()), firstRoll());
 
 	}
 
 	static int counter = 0;
+	static int point = 0;
 
 	public static boolean firstRoll() {
 		if (counter == 0) {
@@ -27,34 +26,32 @@ public class RollDice {
 		return num;
 	}
 
-//	public static String playGame(int randomNum, boolean firstRoll) {
-//		if (randomNum == 7 || randomNum == 11) {
-//			
-//		}
-//
-//		return "win";
-//	}
-
 	public static String playGame(int dice, boolean firstRoll) {
-		int point = firstRollPoint(dice, firstRoll);
-		System.out.println("testing play game");
-
+		point = firstRollPoint(dice, firstRoll);
+		System.out.println("Point is " + point);
 		System.out.println("dice = " + dice);
-
 		System.out.println("is this the first roll? " + firstRoll);
 
-		if (dice == 7 || dice == 11 && firstRoll) {
+		if (dice == 7 && firstRoll || dice == 11 && firstRoll) {
 			System.out.println("win");
 			return "win";
-		} else if (dice == 2 || dice == 3 || dice == 12 && firstRoll) {
+		} else if (dice == 2 && firstRoll || dice == 3 && firstRoll || dice == 12 && firstRoll) {
 			System.out.println("lose");
 			return "lose";
 		} else if (firstRoll == false && dice == 7) {
 			System.out.println("You rolled " + dice + ".\nYou lose!");
 			return "lose";
+
+		} else if (firstRoll) {
+			playGame(addDice(die(), die()), firstRoll());
+		} else if (firstRoll == false && dice != point) {
+			System.out.println("You rolled " + dice + " Your point is " + point);
+			playGame(addDice(die(), die()), firstRoll());
 		} else {
-			return "something should happen";
+			System.out.println("You rolled a " + dice + " Your point is " + point + "\nYou win!");
+			return "You rolled a " + dice + " Your point is " + point + "\nYou win!";
 		}
+		return "end";
 
 	}
 
@@ -64,7 +61,6 @@ public class RollDice {
 
 	// this method is used to store the first roll;
 	public static int firstRollPoint(int i, boolean firstRoll) {
-		int point = 0;
 		if (point == 0 && firstRoll == true) {
 			point = i;
 		}
