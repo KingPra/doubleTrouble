@@ -28,15 +28,13 @@ public class RollDice {
 
 	public static String playGame(int dice, boolean firstRoll) {
 		point = firstRollPoint(dice, firstRoll);
-		System.out.println("Point is " + point);
-		System.out.println("dice = " + dice);
-		System.out.println("is this the first roll? " + firstRoll);
 
 		if (dice == 7 && firstRoll || dice == 11 && firstRoll) {
-			System.out.println("win");
+
+			System.out.println("You rolled a " + dice + " on the first roll. You win");
 			return "win";
 		} else if (dice == 2 && firstRoll || dice == 3 && firstRoll || dice == 12 && firstRoll) {
-			System.out.println("lose");
+			System.out.println("You rolled a " + dice + " on the first roll. You lose");
 			return "lose";
 		} else if (firstRoll == false && dice == 7) {
 			System.out.println("You rolled " + dice + ".\nYou lose!");
