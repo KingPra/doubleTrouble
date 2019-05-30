@@ -4,7 +4,7 @@ public class RollDice {
 	public static void main(String[] args) {
 		// calls play game method and passes in dice() as an int argument and
 		// firstRoll() as a boolean argument
-		playGame(dice(), firstRoll());
+//		playGame(dice(), firstRoll());
 	}
 
 	// these variables are global to track throughout game play;
@@ -62,7 +62,6 @@ public class RollDice {
 			return "win";
 		}
 		return "end";
-
 	}
 
 	// this method is used to store the first roll;
